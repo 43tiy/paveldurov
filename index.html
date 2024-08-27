@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>43tiy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto 0 auto;
+      padding: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #ffffff;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ff7f50;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      opacity: 0;
+    }
+
+    .fadeInUp {
+      animation-name: fadeInUp;
+    }
+
+    .option {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .option label {
+      margin-right: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      color: #ffffff;
+      flex: 0 0 auto;
+    }
+
+    .option input[type="radio"] {
+      display: none;
+    }
+
+    .option input[type="radio"]+label {
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      font-size: 16.5px;
+      border: 1px solid transparent;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option input[type="radio"]+label:focus {
+      outline: none;
+    }
+
+    .option input[type="radio"]:checked+label {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .text {
+      display: none;
+    }
+
+    .text.active {
+      display: block;
+      animation: fadeInUp 1s ease;
+    }
+
+    .side-content {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .side-content img {
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin-top: 20px;
+      }
+
+      .option label {
+        margin-right: 10px;
+        margin-bottom: 3px;
+      }
+
+      .option input[type="radio"]+label {
+        padding: 10px 12px;
+        border-radius: 12px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        font-size: 16.5px;
+        border: 1px solid transparent;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .side-content img {
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .bottom-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 47px;
+        background-color: rgba(27, 27, 27, 0.65);
+        backdrop-filter: blur(11px);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        z-index: 1000;
+      }
+
+      .option {
+        flex: 1;
+        justify-content: space-around;
+        margin-bottom: 0;
+      }
+
+      .option input[type="radio"]+label {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+      }
+
+      .section-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .side-content {
+        margin-bottom: 60px;
+      }
+    }
+
+    /* New styles for the grey box with icon and text */
+    .github-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #151515;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 330px;
+    }
+
+    .github-icon {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+
+    .github-text {
+      flex-grow: 1;
+    }
+
+    .github-title {
+      font-weight: bold;
+      display: block;
+    }
+
+    .github-description {
+      color: #cccccc;
+    }
+
+    .github-link {
+      color: #ffffff;
+      margin-right: 10px;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .github-link:hover {
+      color: #ff7f50;
+    }
+    </style>
+    </head>
+
+<body>
+  <div class="container">
+    <main>
+      <section class="section animated fadeInUp">
+      </section>
+      <div id="texts">
+        <div class="text active" id="text1">
+          <div class="section-title">Главная</div>
+          <div class="side-content">
+            <img src="image1.jpg" alt="Image 1">
+            <p>VDkvWxjlH+7dbR+B9fBsGVrbVNcSr+YAHHKgopMR+jk=43</p>
+          </div>
+        </div>
+        <div class="text" id="text2">
+          <div class="section-title">Дизайн</div>
+          <div class="side-content">
+            <img src="image2.jpg" alt="Image 2">
+            <p>Начало:
+			
+              Самым первым моим проектом стал Dur0v.com — библиотека студенческих рефератов. Она пользовалась большой популярностью в период сессий. Затем я начал администрировать форум cpbgu.ru. 
+			  Я попытался добавить в данные профилей людей их настоящие имена, в то время, когда все предпочитали никнеймы.
+
+
+          </div>
+        </div>
+        <div class="text" id="text3">
+          <div class="section-title">Мои приложения</div>
+          <div class="side-content">
+            <img src="image3.jpg" alt="Image 3">
+			<a href="https://ru.wikipedia.org/wiki/%D0%92%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5"> - Vkontakte - </a>
+			&#32;
+			<a href="https://ru.wikipedia.org/wiki/Telegram"> - Telegram - </a>
+			&#32;
+			<a href="https://ru.wikipedia.org/wiki/Gram"> - Блокчейн-платформа TON и криптовалюта Gram - </a>
+          </div>
+        </div>
+        <div class="text" id="text4">
+          <div class="section-title">Разное</div>
+          <div class="side-content">
+            <img src="image4.jpg" alt="Image 4">
+            <div class="github-container">
+              <i class="fab fa-github github-icon"></i>
+              <div class="github-text">
+                <span class="github-title">Github</span>
+                <span class="github-description">..</span>
+              </div>
+              <a href="404" class="github-link" target="_blank">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <div style="margin-top: 10px;" class="github-container">
+              <i class="fab fa-telegram github-icon"></i>
+              <div class="github-text">
+                <span class="github-title">Telegram</span>
+                <span class="github-description">know what you want</span>
+              </div>
+              <a href="https://t.me/durov_russia/" class="github-link" target="_blank">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <div style="margin-top: 10px;" class="github-container">
+              <i class="fab fa-twitter github-icon"></i>
+              <div class="github-text">
+                <span class="github-title">Twitter</span>
+                <span class="github-description">I come in most rarely :(</span>
+              </div>
+              <a href="https://twitter.com/durov" class="github-link" target="_blank">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+  </div>
+  </div>
+  </div>
+  </main>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="option">
+      <input type="radio" id="mobile-option1" name="mobileTextOption" value="option1" checked>
+      <label for="mobile-option1"><i class="fas fa-home"></i></label>
+      <input type="radio" id="mobile-option2" name="mobileTextOption" value="option2">
+      <label for="mobile-option2"><i class="fas fa-paint-brush"></i></label>
+      <input type="radio" id="mobile-option3" name="mobileTextOption" value="option3">
+      <label for="mobile-option3"><i class="fas fa-code"></i></label>
+      <input type="radio" id="mobile-option4" name="mobileTextOption" value="option4">
+      <label for="mobile-option4"><i class="fas fa-ellipsis-h"></i></label>
+    </div>
+  </div>
+
+  <script>
+    const handleOptionChange = (name) => {
+      document.querySelectorAll('.text').forEach((text) => {
+        text.classList.remove('active');
+      });
+      const selectedTextId = 'text' + document.querySelector(`input[name="${name}"]:checked`).value.substr(-1);
+      document.getElementById(selectedTextId).classList.add('active');
+    };
+
+    document.querySelectorAll('input[name="textOption"]').forEach((input) => {
+      input.addEventListener('change', () => handleOptionChange('textOption'));
+    });
+
+    document.querySelectorAll('input[name="mobileTextOption"]').forEach((input) => {
+      input.addEventListener('change', () => handleOptionChange('mobileTextOption'));
+    });
+  </script>
+</body>
+
+</html>
